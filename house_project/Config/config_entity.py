@@ -20,6 +20,11 @@ class DataValidationCOnfig:
 @dataclass
 class DataTransfomationConfig:
     root_dir:Path = 'artifacts/data_transfomation'
+    ingest_data_root:Path ="artifacts/data_ingestion"
+    preprocess_file:Path = "preprocess.pkl"
+    status_path:Path ="artifacts\data_validation\status.txt"
+    schema_path:dict = "schema.yaml"
+    
     
             
     

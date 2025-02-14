@@ -1,8 +1,8 @@
 from house_project.components.data_ingestion import DataIngestion
 from house_project.components.data_validation import DataValidation
-
-
-
+from house_project.components.data_transfomation import DataTransfomation
+from house_project.Config.config_entity import DataTransfomationConfig
+from house_project import logging
 
 
 class DataIngestionPipeline:
@@ -19,4 +19,24 @@ class DataValidationPipeline:
         pass
     def Main(self):
         data_validation = DataValidation()
-        data_validation.Check_Columns_validation()        
+        data_validation.Check_Columns_validation()  
+        
+class DataTransformPipeline:
+    def __init__(self):
+        self.data_transform = DataTransfomationConfig()
+    
+    def Main(self):
+        with open(self.data_transform.status_path,'r') as f:
+                status = f.read().split(":")[-1].strip()
+                
+                if status != "True":
+                    logging.error('Data Validation Sataus is False')
+                       
+                else:   
+                    try:
+                        data_transform = DataTransfomation()
+                        data_transform.apply_feature_engineering_and_data_transfomation()
+                    except Exception as e:
+                        raise e      
+                        
+            

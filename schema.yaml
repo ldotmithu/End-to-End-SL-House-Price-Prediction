@@ -18,7 +18,7 @@ COLUMNS:
   Lon : float64
 
 TARGET:
-     name : Price
+  - Price
 drop_columns:
   - Title
   - Sub_title
@@ -31,4 +31,26 @@ drop_columns:
   - Geo_Address
   - Lat
   - Lon
+
+power:
+  - Land size
+  - Beds
+  - House size
+
+one_hot:
+  - Location
+
+scaler:
+  - Baths
+  - Land size
+  - Beds
+  - House size
+
+outlier: 
+  - Baths
+  - Land size
+  - Beds
+  - House size
+  - Price
+
 
