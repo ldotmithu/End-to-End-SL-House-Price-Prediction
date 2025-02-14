@@ -21,7 +21,9 @@ list_of_path = [
     "app.py",
     "main.py",
     'requirements.txt',
-    'setup.py'
+    'setup.py',
+    "params.yaml",
+    "schema.yaml"
 ]
 
 for path in list_of_path:
