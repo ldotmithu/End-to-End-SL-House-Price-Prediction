@@ -1,7 +1,7 @@
 from pathlib import Path
 import os 
 
-main_folder ="ml_project"
+main_folder ="house_project"
 
 list_of_path = [
     
