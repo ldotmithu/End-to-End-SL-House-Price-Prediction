@@ -9,6 +9,7 @@ from sklearn.pipeline import Pipeline
 from house_project.Utility.common import *
 from house_project.Utility.feature_engineering import FeatureEngineering
 import os 
+from pathlib import Path
 
 
 class DataTransfomation:
@@ -49,7 +50,7 @@ class DataTransfomation:
         try:
             csv_file = check_csv_occur(self.data_transform.ingest_data_root)
             
-            data = pd.read_csv("artifacts\data_ingestion\house_prices.csv")
+            data = pd.read_csv(Path(os.path.join(self.data_transform.ingest_data_root,csv_file)))
             data = self.data_clean.clean_price(data)
             data = self.data_clean.clean_bath(data)
             data = self.data_clean.clean_bed(data)
