@@ -10,3 +10,11 @@ class DataIngestionConfig:
     local_data_path:Path = "artifacts/data_ingestion/data.zip"
     unzip_dir:Path = "artifacts/data_ingestion"
     
+@dataclass
+class DataValidationCOnfig:
+    root_dir:Path = 'artifacts/data_validation'
+    ingest_data_root:Path ="artifacts/data_ingestion"
+    status_path:Path ="artifacts/data_validation/status.txt"
+    schema_path:dict = "schema.yaml"
+        
+    

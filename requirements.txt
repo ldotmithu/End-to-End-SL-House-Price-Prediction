@@ -23,5 +23,5 @@ joblib
 pandas
 numpy
 pathlib
-
+seaborn
 -e . 
