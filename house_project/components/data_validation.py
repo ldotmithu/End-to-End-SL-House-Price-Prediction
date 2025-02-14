@@ -1,7 +1,7 @@
 from house_project.Config.config_entity import DataValidationCOnfig
 from house_project import logging
 import pandas as pd 
-from house_project.Utility.common import Create_Dir,Read_Yaml
+from house_project.Utility.common import Create_Dir,Read_Yaml,check_csv_occur
 import os 
 import csv
 
@@ -12,23 +12,9 @@ class DataValidation:
         
         Create_Dir(self.data_validation.root_dir)
         
-    def check_csv_files(self):
-        files = os.listdir(self.data_validation.ingest_data_root)
-        csv_file = [file for file in files if file.endswith(".csv")]
-        if len(csv_file) == 1:
-            return csv_file[0]
-        elif len(csv_file) == 0:
-            logging.error("Don't have any csv files")
-            return None
-        else:
-            logging.error("Multipule csv files are there")
-            return None
-        
+          
     def Check_Columns_validation(self):
-        csv_file = self.check_csv_files()
-        if not csv_file:
-            logging.error('No valid CSV file to process')
-            return 
+        csv_file = check_csv_occur(self.data_validation.ingest_data_root)
         data = pd.read_csv(os.path.join(self.data_validation.ingest_data_root,csv_file))
         logging.info("Load the Data through Pandas")
         all_columns = list(data.columns)

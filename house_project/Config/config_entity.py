@@ -17,4 +17,9 @@ class DataValidationCOnfig:
     status_path:Path ="artifacts/data_validation/status.txt"
     schema_path:dict = "schema.yaml"
         
+@dataclass
+class DataTransfomationConfig:
+    root_dir:Path = 'artifacts/data_transfomation'
+    
+            
     

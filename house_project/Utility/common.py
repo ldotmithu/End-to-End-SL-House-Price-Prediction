@@ -20,5 +20,15 @@ def Read_Yaml(file_path):
     except yaml.YAMLError as e:
         logging.error("YAML file is empty")
         raise e 
-        
+def check_csv_occur(dir_path):
+    files = os.listdir(dir_path)
+    csv_file = [file for file in files if file.endswith(".csv")] 
+    if len(csv_file) == 1:
+            return csv_file[0]
+    elif len(csv_file) == 0:
+        logging.error("Don't have any csv files")
+        return None
+    else:
+        logging.error("Multipule csv files are there")
+        return None   
         
