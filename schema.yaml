@@ -49,7 +49,6 @@ scaler:
 outlier: 
   - Baths
   - Land size
-  - Beds
   - House size
 
 

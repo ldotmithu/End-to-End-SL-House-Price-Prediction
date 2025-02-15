@@ -2,6 +2,7 @@ from house_project.components.data_ingestion import DataIngestion
 from house_project.components.data_validation import DataValidation
 from house_project.components.data_transfomation import DataTransfomation
 from house_project.Config.config_entity import DataTransfomationConfig
+from house_project.components.model_trainer import ModelTrainer
 from house_project import logging
 
 
@@ -39,4 +40,11 @@ class DataTransformPipeline:
                     except Exception as e:
                         raise e      
                         
-            
+         
+         
+class ModelTrainerPipeline:
+    def __init__(self):
+        pass
+    def Main(self):
+        model_trainer = ModelTrainer()
+        model_trainer.Model_building()             

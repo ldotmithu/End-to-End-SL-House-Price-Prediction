@@ -25,6 +25,13 @@ class DataTransfomationConfig:
     status_path:Path ="artifacts\data_validation\status.txt"
     schema_path:dict = "schema.yaml"
     
+@dataclass
+class ModelTrainerConfig:
+    root_dir:Path =  'artifacts/model_trainer'
+    train_path:Path = "artifacts/data_transfomation/train.npy"
+    model_name =str = "model.pkl" 
+    params_path:Path ="params.yaml"
+    
     
             
     
