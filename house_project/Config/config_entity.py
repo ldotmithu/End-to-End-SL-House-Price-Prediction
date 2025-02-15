@@ -33,5 +33,14 @@ class ModelTrainerConfig:
     params_path:Path ="params.yaml"
     
     
+@dataclass
+class ModelEvaluationConfig:
+    root_dir :Path = "artifacts/model_evaluation"
+    model_path:Path ='artifacts/model_trainer/model.pkl'
+    test_data_path:Path ="artifacts/data_transfomation/test.npy"
+    metrics_name:str ="metrics.json"
+        
+    
+    
             
     

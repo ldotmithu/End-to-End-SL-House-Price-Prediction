@@ -3,6 +3,7 @@ from house_project import logging
 from sklearn.ensemble import RandomForestRegressor
 from house_project.Utility.common import Create_Dir,Read_Yaml
 import numpy as np 
+from xgboost import XGBRegressor
 import joblib
 import os
 

@@ -1,5 +1,5 @@
 from house_project.Pipeline.Stages_of_pipeline import (DataIngestionPipeline,DataValidationPipeline,
-                                                       DataTransformPipeline,ModelTrainerPipeline)
+                                                       DataTransformPipeline,ModelTrainerPipeline,ModelEvaluationPipeline)
 from house_project import logging
 
 try:
@@ -35,6 +35,15 @@ try:
     logging.info(">>>>>>>Model Tranier >>>>>>>")
     model_trainer = ModelTrainerPipeline()
     model_trainer.Main()
+    logging.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
+except Exception as e:
+    #logging.exception(e)
+    raise e 
+
+try:
+    logging.info(">>>>>>>Model Tranier >>>>>>>")
+    model_evaluation = ModelEvaluationPipeline()
+    model_evaluation.Main()
     logging.info(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>")
 except Exception as e:
     #logging.exception(e)

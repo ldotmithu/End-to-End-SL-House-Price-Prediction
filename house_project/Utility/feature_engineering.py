@@ -30,7 +30,9 @@ class FeatureEngineering:
                 return None
         data["Land size"] = data['Land size'].str.replace('perches', '', regex=True)
         data['Land size'] = data['Land size'].apply(check_land_size)
+        logging.info(f"Shape before dropna: {data.shape}")
         data.dropna(inplace=True)
+        logging.info(f"Shape after dropna: {data.shape}")
         return data
         
     def clean_house_size(self,data):
@@ -51,7 +53,8 @@ class FeatureEngineering:
                 upper_bound = Q3 + (multiplier *IQR)
                 data = data[(data[col] > lower_bound) & (data[col] < upper_bound)] 
                 logging.info(f'Remove the outliers from {columns}')
-                return data
+            return data
+        
                     
         except Exception as e:
             raise e     
