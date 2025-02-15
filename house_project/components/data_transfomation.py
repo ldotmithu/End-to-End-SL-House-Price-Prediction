@@ -10,7 +10,7 @@ from house_project.Utility.common import *
 from house_project.Utility.feature_engineering import FeatureEngineering
 import os 
 from pathlib import Path
-
+import joblib
 
 class DataTransfomation:
     def __init__(self):
@@ -83,6 +83,10 @@ class DataTransfomation:
             np.save(os.path.join(self.data_transform.root_dir,'test.npy'),test_arr)
             logging.info("Feature engineering and preprocessing completed.")
             logging.info("train and test npy save succesfully ")
+            
+            joblib.dump(preprocess_obj,os.path.join(self.data_transform.root_dir,self.data_transform.preprocess_file))
+            logging.info("save the preprocess.pkl")
+            
             
         except Exception as e:
             raise e     
